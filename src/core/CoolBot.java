@@ -16,10 +16,9 @@ public class CoolBot {
 
     private void run(){
         properties = new JsonParser();
-        System.out.println(properties.getToken());
         jda = null;
         try {
-            jda = new JDABuilder("").build();
+            jda = JDABuilder.createDefault("").build();
         } catch (LoginException e) {
             e.printStackTrace();
         }
