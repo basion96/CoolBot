@@ -7,7 +7,7 @@ import javax.security.auth.login.LoginException;
 public class CoolBot {
 
     private static JDA jda;
-    private static JsonParser properties;
+    private static PropertiesHandler properties;
 
     public static void main(String[] args){
         CoolBot coolbot = new CoolBot();
@@ -15,10 +15,10 @@ public class CoolBot {
     }
 
     private void run(){
-        properties = new JsonParser();
+        properties = new PropertiesHandler();
         jda = null;
         try {
-            jda = JDABuilder.createDefault("").build();
+            jda = JDABuilder.createDefault(properties.getToken()).build();
         } catch (LoginException e) {
             e.printStackTrace();
         }

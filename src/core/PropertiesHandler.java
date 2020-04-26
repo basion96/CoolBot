@@ -5,13 +5,13 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Properties;
 
-public class JsonParser {
+public class PropertiesHandler {
     private Properties config;
     private OutputStream out;
 
-    public JsonParser(){
+    public PropertiesHandler(){
         config = new Properties();
-        String path = "resources/botData.json";
+        String path = "resources/botData.properties";
         try {
             config.load(new FileInputStream(path));
         }catch (IOException e){
