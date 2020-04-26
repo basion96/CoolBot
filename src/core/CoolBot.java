@@ -7,6 +7,7 @@ import javax.security.auth.login.LoginException;
 public class CoolBot {
 
     private static JDA jda;
+    private static JsonParser properties;
 
     public static void main(String[] args){
         CoolBot coolbot = new CoolBot();
@@ -14,9 +15,9 @@ public class CoolBot {
     }
 
     private void run(){
+        properties = new JsonParser();
         JDABuilder bot = new JDABuilder(AccountType.BOT);
-        //get token from json file
-        bot.setToken("");
+        bot.setToken(properties.getToken());
         bot.setAutoReconnect(true);
 
         try{
