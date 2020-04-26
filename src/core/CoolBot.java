@@ -1,7 +1,7 @@
 package core;
-import net.dv8tion.jda.core.AccountType;
-import net.dv8tion.jda.core.JDA;
-import net.dv8tion.jda.core.JDABuilder;
+import net.dv8tion.jda.api.JDA;
+import net.dv8tion.jda.api.JDABuilder;
+
 import javax.security.auth.login.LoginException;
 
 public class CoolBot {
@@ -16,19 +16,13 @@ public class CoolBot {
 
     private void run(){
         properties = new JsonParser();
-        JDABuilder bot = new JDABuilder(AccountType.BOT);
-        bot.setToken(properties.getToken());
-        bot.setAutoReconnect(true);
-
-        try{
-            jda = bot.buildBlocking();
-        }catch(LoginException | InterruptedException e){
+        System.out.println(properties.getToken());
+        jda = null;
+        try {
+            jda = new JDABuilder("").build();
+        } catch (LoginException e) {
             e.printStackTrace();
         }
-
-        bot.addEventListener(
-
-        );
 
     }
 }
