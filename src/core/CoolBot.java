@@ -1,4 +1,5 @@
 package core;
+import commands.PingPongCommand;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 
@@ -22,6 +23,8 @@ public class CoolBot {
         } catch (LoginException e) {
             e.printStackTrace();
         }
+
+        jda.addEventListener(new PingPongCommand());
 
     }
 }
